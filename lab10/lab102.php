@@ -34,7 +34,20 @@
         print ("<td class='izquierda'>Si</td>\n");
         print ("<td class='derecha'>$votos1</td>\n");
         print ("<td class='derecha'>$porcentaje</td>\n");
+        print ("<td class='izquierda' width='400'><img src='img/puntoamarillo.gif' height='10' width='". $porcentaje*4 ."'></td>\n");
+        print ("</tr>\n");
+
+        $porcentaje=round(($votos2/$totalVotos)*100,2);
+        print ("<tr>\n");
+        print ("<td class='izquierda'>No</td>\n");
+        print ("<td class='derecha'>$votos2</td>\n");
         print ("<td class='derecha'>$porcentaje</td>\n");
+        print ("<td class='izquierda' width='400'><img src='img/puntoamarillo.gif' height='10' width='". $porcentaje*4 ."'></td>\n");
+        print ("</tr>\n");
+
+        print ("</table>\n");
+        print ("<p>Numero total de votos emitidos: $totalVotos</p>\n");
+        print ("<p><a href='lab101.php'>Pagina de votacion</a></p>\n");
     ?>
 
     </body>

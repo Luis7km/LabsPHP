@@ -20,7 +20,7 @@
     }
 
     public function actualizar_votos($votos1,$votos2) {
-        $instruccion = "CALL sp_avtualizar_votos('".$votos1."','".$votos2."')";
+        $instruccion = "CALL sp_actualizar_votos('".$votos1."','".$votos2."')";
         $actualiza = $this->_db->query($instruccion);
 
         if($actualiza) {
