@@ -147,7 +147,7 @@ function generar(idP, tituloP, fechaP, horaP, ubicaP, correoP, repeP, tipoP) {
     let tipo = document.createElement("select");
     tipo.setAttribute('type', "select");
     tipo.setAttribute('name', "tipo");
-    tipo.setAttribute('value', tipoP);
+    //tipo.setAttribute('value', tipoP);
     let actualizar = document.createElement("input");
     actualizar.setAttribute('type', "submit");
     actualizar.setAttribute('name',"actualizar");
@@ -194,6 +194,9 @@ function generar(idP, tituloP, fechaP, horaP, ubicaP, correoP, repeP, tipoP) {
     for (let i = 0 ; i<opciones.length; i++) {
         const opc = document.createElement("option");
         opc.textContent = opciones[i];
+        if (opc.textContent == tipoP) {
+            opc.setAttribute('selected', 'selected');
+        }
         tipo.appendChild(opc);
     }
     form.appendChild(actualizar);
