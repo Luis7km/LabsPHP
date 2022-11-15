@@ -1,5 +1,5 @@
 /* General */
-BODY {font-family: verdana,arial, sans-serif; font-size: 10pt;}
+   BODY {font-family: verdana,arial, sans-serif; font-size: 10pt;}
 
 /* Contenido */
    H1 {font-size: 16pt; font-weight: bold; color: #0066CC;}
@@ -17,3 +17,4 @@ BODY {font-family: verdana,arial, sans-serif; font-size: 10pt;}
    TD {font-size: 10pt; background: #CCCCCC; margin: 10px;}
    TD.derecha {font-size: 10pt; text-align: right; background: #FFFFFF;}
    TD.izquierda {font-size: 10pt; text-align: left; background: #FFFFFF;}
+

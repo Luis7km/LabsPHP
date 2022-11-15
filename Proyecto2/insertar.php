@@ -2,6 +2,8 @@
     <head>
         <title>Nueva actividad</title>
         <link rel="stylesheet" type="text/css" href="css/estilo.css">
+        <script src="js/jquery-3.1.1.js"></script>
+        <script src="js/helper.js"></script>
     </head>
     <body>
         
@@ -19,10 +21,14 @@
                 $repeticion = $_REQUEST["repeticion"];
                 $tipo = $_REQUEST["tipo"];
                     
-                require_once("class/agenda.php");
-
-                $obj_agenda = new agenda();
-                $result_agenda = $obj_agenda->insertar_actividad($titulo,$fecha,$hora,$ubicacion,$correo,$repeticion,$tipo);
+                echo '<script>crear("'
+                    .$titulo.'","'
+                    .$fecha.'","'
+                    .$hora.'","'
+                    .$ubicacion.'","'
+                    .$correo.'","'
+                    .$repeticion.'","'
+                    .$tipo.'")</script>';
 
                 echo ("<h1>Actividad registrada correctamente</h1> <br><br>");
                 echo ("<a href='Act_resume.php'>Volver al resumen de actividades</a>");
@@ -37,7 +43,7 @@
         <form method="POST" action="insertar.php">
             Titulo <input type="text" name="titulo"> <br> <br>
             Fecha <input type="date" name="fecha"> <br> <br>
-            Hora <input type="text" name="hora"> <br> <br>
+            Hora <input type="time" name="hora"> <br> <br>
             Ubicacion <input type="text" name="ubicacion"> <br> <br>
             Correo <input type="text" name="correo"> <br> <br>
             Repeticion <input type="text" name="repeticion"> <br> <br>

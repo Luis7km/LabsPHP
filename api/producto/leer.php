@@ -45,6 +45,6 @@ if($num>0){
         http_response_code(404);
         //informarle al usuario que no se encontraron productos 
         echo json_encode(
-            array("message"=>"No se encontraron productos.")
+            array("message"=>"No se encontraron actividades agendadas.")
         );
     }
