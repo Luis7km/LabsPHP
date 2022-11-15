@@ -46,7 +46,13 @@
             Hora <input type="time" name="hora"> <br> <br>
             Ubicacion <input type="text" name="ubicacion"> <br> <br>
             Correo <input type="text" name="correo"> <br> <br>
-            Repeticion <input type="text" name="repeticion"> <br> <br>
+            Repeticion <select name="repeticion">
+                <option value="5 min">5 min</option>
+                <option value="15 min">15 min</option>
+                <option value="30 min">30 min</option>
+                <option value="1 hr">1 hr</option>
+                <option value="Todo el dia">Todo el dia</option>
+            </select> <br> <br>
             Tipo <select name="tipo">
             <option value="Deporte">Deporte</option>
             <option value="Estudio">Estudio</option>
