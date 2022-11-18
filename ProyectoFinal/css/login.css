@@ -20,6 +20,11 @@ body {
     padding: 10%;
 }
 
+input::placeholder {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12pt;
+}
+
 h1 {
     font-family: 'Dancing Script', cursive;
     color: #FA8334;
