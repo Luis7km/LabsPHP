@@ -86,10 +86,6 @@ p {
     font-weight: bolder;
 }
 
-.coment {
-    width: 70%;
-}
-
 .midle-content::-webkit-scrollbar {
     display: none;
 }
@@ -105,7 +101,7 @@ p {
     scrollbar-width: none;
 }
 
-.publicacion {
+.perfil-info {
     display: flex;
     flex-direction: column;
     padding-top: 30px;
@@ -118,32 +114,8 @@ p {
     box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
 }
 
-.pub-coments {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    margin-bottom: 20px;
-    padding-left: 40px;
-    padding-right: 40px;
-    width: 77%;
-    border-radius: 3px;
-    border: 1px solid #FA8334;
-    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
-}
-
-.pub-coments, .coment-area {
-    padding: 10px;
-}
-
-.pub-content {
-    width: 80%;
-}
-
 .right-content {
     background-color: #7B6D8D;
     padding: 10px;
     white-space: nowrap;
-}
-
-img {
-    width: 100%;
 }

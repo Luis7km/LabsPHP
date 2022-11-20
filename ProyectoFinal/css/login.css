@@ -17,7 +17,7 @@ body {
 .content {
     display: flex;
     justify-content: center;
-    padding: 10%;
+    padding: 5%;
 }
 
 input::placeholder {
@@ -59,7 +59,7 @@ h3 {
     box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
 }
 
-.firstName, .secondName, .registeredEmail, .password, .password2, .user-login, .pass-login {
+.firstName, .secondName, .registeredEmail, .password, .password2, .user-login, .pass-login, .user {
     margin-top: 10pt;
     accent-color: #ffe882;
     border-radius: 5px;
