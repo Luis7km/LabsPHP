@@ -80,12 +80,6 @@ span {
     font-weight: bolder;
 }
 
-p {
-    font-family: 'Roboto', sans-serif;
-    font-size: 12pt;
-    font-weight: bolder;
-}
-
 .midle-content::-webkit-scrollbar {
     display: none;
 }
@@ -99,16 +93,20 @@ p {
     overflow-y: scroll;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22pt;
+    font-weight: bolder;
+
 }
 
 .perfil-info {
     display: flex;
     flex-direction: column;
+    width: 40%;
     padding-top: 30px;
-    padding-bottom: 30px;
-    margin-bottom: 20px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-bottom: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
     border-radius: 3px;
     border: 1px solid #FA8334;
     box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
@@ -118,4 +116,39 @@ p {
     background-color: #7B6D8D;
     padding: 10px;
     white-space: nowrap;
+}
+
+.id-card, .nombre-card, .apellido-card, .apellido2-card, .user-card, .password-card, .email-card {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.info-card {
+    padding: 10px;
+}
+
+.actualizar {
+	box-shadow:inset 0px 1px 0px 0px #e184f3;
+	background:linear-gradient(to bottom, #c123de 5%, #a20dbd 100%);
+	background-color:#c123de;
+	border-radius:6px;
+	border:1px solid #a511c0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:'Roboto', sans-serif;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #9b14b3;
+}
+.actualizar:hover {
+	background:linear-gradient(to bottom, #a20dbd 5%, #c123de 100%);
+	background-color:#a20dbd;
+}
+.actualizar:active {
+	position:relative;
+	top:1px;
 }
