@@ -7,6 +7,7 @@
         public function __construct($db) {
             $this->conn=$db;
         }
+
         function consultar_publicaciones() {
             $instrucciones = "CALL sp_listar_publicaciones()";
             //preparar consuulta
@@ -26,7 +27,7 @@
         }
 
         function consultar_publicaciones_ususario($usuario) {
-            $instrucciones = "CALL sp_listar_publicaciones_usuario(".$usuario.")";
+            $instrucciones = "CALL sp_listar_publicaciones_usuario('".$usuario."')";
             //preparar consuulta
             $stmt=$this->conn->prepare($instrucciones);
             //ejecutar consulta
@@ -101,7 +102,7 @@
         }
 
         function consultar_perfil($usuario) {
-            $instrucciones = "CALL sp_listar_perfil(".$usuario.")";
+            $instrucciones = "CALL sp_listar_perfil('".$usuario."')";
             //preparar consuulta
             $stmt=$this->conn->prepare($instrucciones);
             //ejecutar consulta
