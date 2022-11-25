@@ -46,7 +46,7 @@
             <div name="right-content" id="right-content" class="right-content" style="padding: 20px;">
                 <span style="font-weight: bold;">Que quieres hacer?</span><br><br><hr><br>
                 <div name="first-left-option" id="first-left-option" class="first-left-option">
-                    <a href="perfil.html"><img src="../img/perfil.png" style="width: 16pt;">  Perfil</a>
+                    <a href="perfil.php"><img src="../img/perfil.png" style="width: 16pt;">  Perfil</a>
                 </div>
                 <br><hr><br>
                 <div name="second-left-option" id="second-left-option" class="second-left-option">
