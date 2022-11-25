@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -126,5 +129,18 @@
         <footer>
             <h1 id="headerTitle">MindBook</h1>
         </footer>
+        <script src="../js/jquery-3.1.1.js"></script>
+        <script src="../js/helper.js"></script>
+        <?php
+            if (isset($_SESSION['usuario_valido']) && isset($_SESSION['id_valido'])) {
+                $data = json_decode(file_get_contents('http://localhost/proyectofinal/api/consultar_publicaciones.php'), true);
+                foreach($data['records'] as $records) {
+                    echo '<script>
+                    cargar_publicaciones("'.$records['usuario'].'", "'.$records['contenido'].'", "'.$records['imagen'].'");
+                    </script>';
+                }
+            }
+            echo $_SESSION['usuario_valido'];
+        ?>
     </body>>
 </html>
