@@ -72,7 +72,7 @@
                 </div>
                 <br><hr><br>
                 <div name="second-left-option" id="second-left-option" class="second-left-option">
-                    <a href=""><img src="../img/salir.png" style="width: 16pt;">  Salir</a>
+                    <a href="../backend/back_logout.php"><img src="../img/salir.png" style="width: 16pt;">  Salir</a>
                 </div>
             </div>
         </section>
