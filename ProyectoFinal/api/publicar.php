@@ -15,12 +15,6 @@
     //obtener los datos 
     $data=json_decode(file_get_contents("php://input"));
     //asegurar que los datos no esten vacios 
-    $mindbook->crear_publicaciones(
-        $data->id_user,
-        $data->contenido,
-        $data->imagen,
-        $data->tipo,
-    );
     if(
         (!empty($data->id_user)&&!empty($data->contenido)&&!empty($data->imagen)&&!empty($data->tipo)) or
         (!empty($data->id_user)&&empty($data->contenido)&&!empty($data->imagen)&&!empty($data->tipo)) or

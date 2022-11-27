@@ -38,7 +38,7 @@
                             <input type="file" name="imagen" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])"/><br/><br/>
                             <img id="output" src="" width="20%" alt="">
                         </div>
-                        <input type="radio" name="tipo" class="tipo" id="tipo" value="publico" selected="true"><span>Publico</span>
+                        <input type="radio" name="tipo" class="tipo" id="tipo" value="publico" checked="checked"><span>Publico</span>
                         <input type="radio" name="tipo" class="tipo" id="tipo" value="privado"><span>Privado</span>
                         <br><br>
                         <input type="submit" name="subir" id="subir" class="subir" value="Subir">

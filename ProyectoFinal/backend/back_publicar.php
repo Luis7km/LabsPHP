@@ -30,19 +30,7 @@
             curl_close($ch);
             move_uploaded_file ($_FILES['imagen']['tmp_name'],
             $nombreDirectorio . $nombreArchivo);
-            
-
-            //echo $_SESSION['id_valido'];
-            //echo '<br>';
-            //echo $_REQUEST['contenido-pub'];
-            //echo '<br>';
-            //echo $datos2;
-            //echo '<br>';
-            //echo $_REQUEST['tipo'];
-            //echo '<br>';
-            //echo 'yo soy ruperto';
-            
-            //echo '<script>open_hub();</script>';
+            echo '<script>open_hub();</script>';
         ?>
     </body>
 </html>
