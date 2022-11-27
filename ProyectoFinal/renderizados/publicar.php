@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,16 +32,14 @@
             <div name="midle-content" id="midle-content" class="midle-content">
                 <div name="publicacion-card" id="publicacion-card" class="publicacion-card">
                     <h2 style="font-size: 24pt;">Dale cuerpo a tu publicacion</h2><br><hr><br>
-                    <form action="" enctype="multipart/form-data">
+                    <form action="../backend/back_publicar.php" enctype="multipart/form-data" method="post">
                         <textarea name="contenido-pub" id="contenido-pub" class="contenido-pub" placeholder="Contenido... (Opcional)"></textarea><br><br>
                         <div id="drop_file_zone">
-                            <div id="drag_upload_file">
-                                <p>Arrastre el archivo aqui</p>
-                                <p>o</p>
-                                <p><input type="button" value="Seleccione el archivo"/></p>
-                                <input type="file" id="selectfile"/>
-                            </div>
+                            <input type="file" name="imagen" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])"/><br/><br/>
+                            <img id="output" src="" width="20%" alt="">
                         </div>
+                        <input type="radio" name="tipo" class="tipo" id="tipo" value="publico" selected="true"><span>Publico</span>
+                        <input type="radio" name="tipo" class="tipo" id="tipo" value="privado"><span>Privado</span>
                         <br><br>
                         <input type="submit" name="subir" id="subir" class="subir" value="Subir">
                     </form>
@@ -57,5 +59,5 @@
         <footer>
             <h1 id="headerTitle">MindBook</h1>
         </footer>
-    </body>>
+    </body>
 </html>

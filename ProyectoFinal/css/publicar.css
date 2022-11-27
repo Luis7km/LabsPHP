@@ -151,15 +151,6 @@ textarea {
     font-size: 18px;
 }
 
-#drag_upload_file {
-    width: 50%;
-    margin: 0 auto;
-}
-
-#drag_upload_file p {
-    text-align: center;
-}
-
 .publicacion-card {
     margin-left: 25px;
     margin-right: 25px;

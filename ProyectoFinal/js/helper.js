@@ -2,6 +2,18 @@ function open_hub() {
     window.open('../renderizados/hub.php', "_self");
 }
 
+function publicar(id_user, contenido, imagen, tipo) {
+    $.ajax({
+        type: "POST",
+        url: "http://localhost/proyectofinal/api/publicar.php",
+        async: false,
+        dataType: "json",
+        data: JSON.stringify({ id_user: id_user, contenido: contenido, imagen: imagen, tipo: tipo }),
+        dataType: "json",
+        contentType: "application/json"
+    });
+}
+
 function cargar_publicaciones(usuario, contenido, imagen) {
     var midle_content = document.getElementById('midle-content');
     const template = `<div name="publicacion" id="publicacion" class="publicacion">

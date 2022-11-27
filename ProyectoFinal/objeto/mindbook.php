@@ -58,8 +58,14 @@
 
         public function crear_publicaciones($id_user,$contenido,$imagen,$tipo) {
             $instrucciones = "CALL sp_crear_publicacion('".$id_user."','".$contenido."','".$imagen."','".$tipo."')";
+            $instrucciones2 = "CALL sp_crear_publicacion(?,?,?,?)";
             //preparar consulta
-            $stmt=$this->conn->prepare($instrucciones);
+            $stmt=$this->conn->prepare($instrucciones2);
+            //bind parametros
+            $stmt->bindParam(1, $id_user);
+            $stmt->bindParam(2, $contenido);
+            $stmt->bindParam(3, $imagen);
+            $stmt->bindParam(4, $tipo);
             //ejecutar consulta
             $stmt->execute();
 
