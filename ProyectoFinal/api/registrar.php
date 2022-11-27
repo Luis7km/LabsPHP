@@ -22,9 +22,6 @@
         !empty($data->usuario)&&
         !empty($data->contrasena)
         ){
-            $salt=substr($data->usuario, 0, 2);
-            $clave_crypt = crypt($data->contrasena, $salt);
-            $data->contrasena = $clave_crypt;
             //crear actividad
             if($mindbook->crear_usuario(
                 $data->nombre,

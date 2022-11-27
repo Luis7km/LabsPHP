@@ -8,6 +8,15 @@
             $this->conn=$db;
         }
 
+        function consultar_perfiles() {
+            $instrucciones = "CALL sp_listar_usuarios()";
+            //preparar consuulta
+            $stmt=$this->conn->prepare($instrucciones);
+            //ejecutar consulta
+            $stmt->execute();
+            return $stmt;
+        }
+
         function consultar_publicaciones() {
             $instrucciones = "CALL sp_listar_publicaciones()";
             //preparar consuulta

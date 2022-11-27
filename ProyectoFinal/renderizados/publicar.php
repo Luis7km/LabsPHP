@@ -13,21 +13,19 @@
     <body>
         <header>
             <h1 id="headerTitle">MindBook</h1>
+            <a href="hub.php"><h1 id="acceso">Hub</h1></a>
         </header>
         <section name="content-father" id="content-father" class="content-father">
             <div name="left-content" id="left-content" class="left-content" style="padding: 20px;">
-                <span style="font-weight: bold;">Que quieres hacer?</span><br><br><hr><br>
+                <span style="font-weight: bold; font-size: 16pt;">Que quieres hacer?</span><br><br><hr><br>
                 <div name="first-left-option" id="first-left-option" class="first-left-option">
-                    <a href="hub.php"><img src="../img/inicio.png" style="width: 16pt;">  Inicio</a>
+                    <a href="hub.php"  style="font-size: 14pt;"><img src="../img/inicio.png" style="width: 16pt;">  Inicio</a>
                 </div>
                 <br><hr><br>
                 <div name="second-left-option" id="second-left-option" class="second-left-option">
-                    <a href=""><img src="../img/publicar.png" style="width: 16pt;">  Publica algo</a>
+                    <a href=""  style="font-size: 14pt;"><img src="../img/publicar.png" style="width: 16pt;">  Publica algo</a>
                 </div>
                 <br><hr><br>
-                <div name="third-left-option" id="third-left-option" class="third-left-option">
-                    <a href=""><img src="../img/buscar.png" style="width: 16pt;">  Explorar</a>
-                </div>
             </div>
             <div name="midle-content" id="midle-content" class="midle-content">
                 <div name="publicacion-card" id="publicacion-card" class="publicacion-card">
@@ -46,13 +44,13 @@
                 </div>
             </div>
             <div name="right-content" id="right-content" class="right-content" style="padding: 20px;">
-                <span style="font-weight: bold;">Que quieres hacer?</span><br><br><hr><br>
+                <span style="font-weight: bold; font-size: 16pt;">Que quieres hacer?</span><br><br><hr><br>
                 <div name="first-left-option" id="first-left-option" class="first-left-option">
-                    <a href="perfil.php"><img src="../img/perfil.png" style="width: 16pt;">  Perfil</a>
+                    <a href="perfil.php"  style="font-size: 14pt;"><img src="../img/perfil.png" style="width: 16pt;">  Perfil</a>
                 </div>
                 <br><hr><br>
                 <div name="second-left-option" id="second-left-option" class="second-left-option">
-                    <a href="../backend/back_logout.php"><img src="../img/salir.png" style="width: 16pt;">  Salir</a>
+                    <a href="../backend/back_logout.php"  style="font-size: 14pt;"><img src="../img/salir.png" style="width: 16pt;">  Salir</a>
                 </div>
             </div>
         </section>

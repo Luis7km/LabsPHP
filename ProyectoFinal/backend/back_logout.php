@@ -11,7 +11,7 @@
             if (isset($_SESSION['usuario_valido']) && isset($_SESSION['id_valido'])) {
                 session_destroy();
             }            
-            echo '<script>open_hub();</script>';
+            echo '<script>open_login();</script>';
         ?>
     </body>
 </html>

@@ -9,11 +9,12 @@
     <body>
         <section name="header" id="header" class="header">
             <h1 id="headerTitle">MindBook</h1>
+            <a href="hub.php"><h1 id="acceso">Hub</h1></a>
         </section>
         <section name="content" id="content" class="content">
             <section name="Card-Credentials" id="Card-Credentials" class="Card-Credentials">
             <div name="Card-register" id="Card-register" class="Card-register">
-                <form action="">
+                <form action="../backend/back_login.php" method="post">
                     <h3>Por favor, ingrese sus datos para registrarse</h3>
                     <div name="registeredNames" id="registeredNames" class="registeredNames">
                         <input type="text" name="firstName" id="firstName" class="firstName" placeholder="Primer nombre">

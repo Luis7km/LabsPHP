@@ -3,13 +3,25 @@
 /*   #388697  -   #271033  - #FA8334 - #fffd77  - #ffe882 */
 /* AzulPalido - AzulOscuro - Naranja - Amarillo - Mostaza */   
 body {
-    background-color: #388697;
+    background-color: #50D8D7;
+}
+
+#acceso {
+    color: #FA8334;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40pt;
+}
+
+a, textarea::placeholder {
+    color: #563440;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
 }
 
 .header {
     background-color: #271033;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 20px;
     height: 20%;
 }

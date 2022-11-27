@@ -21,9 +21,6 @@
         !empty($data->contrasena)
     
     ){
-        $salt=substr($data->usuario, 0, 2);
-        $clave_crypt = crypt($data->contrasena, $salt);
-        $data->contrasena = $clave_crypt;
         //consultar con el id
         $stmt = $mindbook->verificar_usuario($data->usuario,$data->contrasena);
         $num = $stmt->rowCount();

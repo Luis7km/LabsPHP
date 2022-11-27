@@ -8,13 +8,24 @@ html {
     width: 100%;
 }
 
+a, textarea::placeholder {
+    color: #563440;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12pt;
+}
+
 p {
     font-family: 'Roboto', sans-serif;
     font-size: 12pt;
 }
 
 body {
-    background-color: #388697;
+    background-color: #50D8D7;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -25,7 +36,7 @@ body {
 header {
     background-color: #271033;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 1%;
     position: absolute;
     height: 10%;
@@ -65,7 +76,7 @@ footer {
 }
 
 .left-content {
-    background-color: #7B6D8D;
+    background-color: #F7E8A4;
     padding: 10px;
     white-space: nowrap;
     position:relative;
@@ -103,7 +114,7 @@ span {
 .perfil-info {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 50%;
     padding-top: 30px;
     padding-bottom: 20px;
     padding-left: 60px;
@@ -114,7 +125,7 @@ span {
 }
 
 .right-content {
-    background-color: #7B6D8D;
+    background-color: #F7E8A4;
     padding: 10px;
     white-space: nowrap;
 }
