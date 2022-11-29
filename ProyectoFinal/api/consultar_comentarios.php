@@ -32,8 +32,8 @@
                 
                 $comentarios_item=array(
     
-                    "comentario"=>$comentario,
-                    "usuario"=>$usuario);
+                    "usuario"=>$usuario,
+                    "comentario"=>$comentario,);
     
                     array_push($comentarios_arr["records"],$comentarios_item);
                 }

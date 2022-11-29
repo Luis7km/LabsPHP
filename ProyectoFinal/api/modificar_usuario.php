@@ -19,8 +19,7 @@
         !empty($data->id)&&
         !empty($data->nombre)&&
         !empty($data->apellido)&&
-        !empty($data->email)&&
-        !empty($data->contrasena)
+        !empty($data->email)
         ){
             //actualizar actividad 
             if($mindbook->modificar_usuario(
@@ -28,7 +27,6 @@
                 $data->nombre,
                 $data->apellido,
                 $data->email,
-                $data->contrasena,
             )){
                 //asignar codigo de respuesta - 201 creado 
                 http_response_code(201);

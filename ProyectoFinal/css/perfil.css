@@ -140,7 +140,7 @@ span {
     padding: 10px;
 }
 
-.actualizar {
+.actualizar, .actualizar2 {
 	box-shadow:inset 0px 1px 0px 0px #e184f3;
 	background:linear-gradient(to bottom, #c123de 5%, #a20dbd 100%);
 	background-color:#c123de;
@@ -156,11 +156,11 @@ span {
 	text-decoration:none;
 	text-shadow:0px 1px 0px #9b14b3;
 }
-.actualizar:hover {
+.actualizar:hover, .actualizar2:hover {
 	background:linear-gradient(to bottom, #a20dbd 5%, #c123de 100%);
 	background-color:#a20dbd;
 }
-.actualizar:active {
+.actualizar:active, .actualizar2:active {
 	position:relative;
 	top:1px;
 }

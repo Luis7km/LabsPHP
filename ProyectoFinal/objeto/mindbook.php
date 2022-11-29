@@ -89,8 +89,20 @@
             }
         }
 
-        public function modificar_usuario($id,$nombre,$ape,$em,$pass) {
-            $instrucciones = "CALL sp_modificar_usuario('".$id."','".$nombre."','".$ape."','".$em."','".$pass."')";
+        public function modificar_usuario($id,$nombre,$ape,$em) {
+            $instrucciones = "CALL sp_modificar_usuario('".$id."','".$nombre."','".$ape."','".$em."')";
+            //preparar consulta
+            $stmt=$this->conn->prepare($instrucciones);
+            //ejecutar consulta
+            $stmt->execute();
+
+            if ($stmt) {
+                return $stmt;
+            }
+        }
+
+        public function modificar_contrasena($id,$pass) {
+            $instrucciones = "CALL sp_modificar_contrasena('".$id."','".$pass."')";
             //preparar consulta
             $stmt=$this->conn->prepare($instrucciones);
             //ejecutar consulta

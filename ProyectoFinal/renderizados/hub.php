@@ -54,15 +54,69 @@
                 $data = json_decode(file_get_contents('http://localhost/proyectofinal/api/consultar_publicaciones.php'), true);
                 foreach($data['records'] as $records) {
                     echo '<script>
-                    cargar_publicaciones("'.$records['usuario'].'", "'.$records['contenido'].'", "'.$records['imagen'].'");
+                    cargar_publicaciones("'.$records['usuario'].'", "'.$records['contenido'].'", "'.$records['imagen'].'", '.$records['pub_id'].');
                     </script>';
+                    $url = 'http://localhost/proyectofinal/api/consultar_comentarios.php';
+                    $ch = curl_init($url);
+                    $user_data = array('pub_id'=>$records["pub_id"]);
+                    $user_data_json = json_encode($user_data);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $user_data_json);
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    $result = curl_exec($ch);
+                    $decoded = json_decode($result, true);
+                    curl_close($ch);
+                    echo '<script>console.log("'.$_SESSION['usuario_valido'].'")</script>';
+                    echo '<script>console.log("'.$_SESSION['id_valido'].'")</script>';
+                    if (!is_null($result)) {
+                        foreach($decoded['records'] as $records2) {
+                            echo '<script>
+                        cargar_comentarios("'.$records2['usuario'].'", "'.$records2['comentario'].'", '.$records['pub_id'].');
+                        </script>';
+                        }
+                    }  
+                }
+                if (array_key_exists('comentar', $_POST)) {
+                    $url = 'http://localhost/proyectofinal/api/comentar.php';
+                    $ch = curl_init($url);
+                    $user_data = array('id_user'=>$_SESSION['id_valido'],
+                                        'id_publi'=>$_REQUEST["pub_id"],
+                                        'contenido'=>$_REQUEST["coment"]);
+                    $user_data_json = json_encode($user_data);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $user_data_json);
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    $result = curl_exec($ch);
+                    echo '<script>
+                        cargar_comentarios("'.$_SESSION['usuario_valido'].'","'.$_REQUEST["coment"].'", '.$_REQUEST["pub_id"].');
+                        </script>';
                 }
             } else {
                 $data = json_decode(file_get_contents('http://localhost/proyectofinal/api/consultar_publicaciones_publicas.php'), true);
                 foreach($data['records'] as $records) {
                     echo '<script>
-                    cargar_publicaciones("'.$records['usuario'].'", "'.$records['contenido'].'", "'.$records['imagen'].'");
+                    cargar_publicaciones("'.$records['usuario'].'", "'.$records['contenido'].'", "'.$records['imagen'].'", "'.$records['pub_id'].'");
                     </script>';
+                    $url = 'http://localhost/proyectofinal/api/consultar_comentarios.php';
+                    $ch = curl_init($url);
+                    $user_data = array('pub_id'=>$records["pub_id"]);
+                    $user_data_json = json_encode($user_data);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $user_data_json);
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    $result = curl_exec($ch);
+                    $decoded = json_decode($result, true);
+                    curl_close($ch);
+                    if (!is_null($result)) {
+                        foreach($decoded['records'] as $records2) {
+                            echo '<script>
+                        cargar_comentarios("'.$records2['usuario'].'", "'.$records2['comentario'].'", "'.$records['pub_id'].'");
+                        </script>';
+                        }
+                    }
+                }
+                if (array_key_exists('comentar', $_POST)) {
+                    echo '<script>open_login();</script>';
                 }
             }
         ?>
