@@ -100,7 +100,7 @@
         <footer>
             <h1 id="headerTitle">MindBook</h1>
         </footer>
-    </body>>
+    </body>
     <?php
     
     $url = 'http://localhost/proyectofinal/api/consultar_perfil.php';

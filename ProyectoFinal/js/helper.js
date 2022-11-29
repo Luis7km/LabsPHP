@@ -78,8 +78,8 @@ function cargar_publicaciones(usuario, contenido, imagen, pub_id) {
         const template = `<div name="publicacion" id="publicacion" class="publicacion">
         <form action="">
                         <div name="pub-name" id="pub-name" class="pub-name">
-                            <a href=""><span style="font-weight: bold; font-size: 14pt;">${usuario}</span></a>
                             <input type="hidden" value="${pub_id}" style="width:30px ; font-size: 8pt; height:12px; background-color: #50D8D7; border:none;"></input>
+                            <button type="submit" style="font-size: 14pt; background-color: #50D8D7; padding: 0px; border:none;">${usuario}</button>
                             <br><br>
                         </div>
                         <div name="pub-content" id="pub-content" class="pub-content">
@@ -111,8 +111,8 @@ midle_content.innerHTML += template;
         const template = `<div name="publicacion" id="publicacion" class="publicacion">
         <form action="">
                         <div name="pub-name" id="pub-name" class="pub-name">
-                            <a href=""><span style="font-weight: bold; font-size: 16pt;">${usuario}</span></a>
                             <input type="hidden" value="${pub_id}" style="width:30px ; font-size: 8pt; height:12px; background-color: #50D8D7; border:none;"></input>
+                            <button type="submit" style="font-size: 14pt; background-color: #50D8D7; padding: 0px; border:none;">${usuario}</button>
                             <br><br>
                         </div>
                         <div name="pub-content" id="pub-content" class="pub-content">

@@ -9,8 +9,13 @@
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <link rel="stylesheet" href="../css/clean.css">
         <link rel="stylesheet" href="../css/publicar.css">
+        <script src="../js/jquery-3.1.1.js"></script>
+        <script src="../js/helper.js"></script>
     </head>
     <body>
+        <?php
+            if (isset($_SESSION['usuario_valido']) && isset($_SESSION['id_valido'])) {
+        ?>
         <header>
             <h1 id="headerTitle">MindBook</h1>
             <a href="hub.php"><h1 id="acceso">Hub</h1></a>
@@ -58,4 +63,9 @@
             <h1 id="headerTitle">MindBook</h1>
         </footer>
     </body>
+    <?php
+            } else {
+                echo '<script>open_login();</script>';
+            }
+        ?>
 </html>
