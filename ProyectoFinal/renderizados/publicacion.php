@@ -50,8 +50,11 @@
         <script src="../js/jquery-3.1.1.js"></script>
         <script src="../js/helper.js"></script>
         <?php
+            if (isset($_POST['abrir-publicacion'])) {
+                $_SESSION["pub_id"] = $_REQUEST['pub_id'];
+            }
             if (isset($_SESSION['usuario_valido']) && isset($_SESSION['id_valido'])) {
-                $pub_id = $_REQUEST['pub_id'];
+                $pub_id = $_SESSION["pub_id"];
                     $url = 'http://localhost/proyectofinal/api/consultar_publicacion.php';
                     $ch = curl_init($url);
                     $user_data = array('pub_id'=>$pub_id);
@@ -65,7 +68,7 @@
 
                 foreach($decoded['records'] as $records) {
                     echo '<script>
-                    cargar_publicaciones("'.$records['usuario'].'", "'.$records['contenido'].'", "'.$records['imagen'].'", '.$records['pub_id'].');
+                    cargar_publicacion("'.$records['usuario'].'", "'.$records['contenido'].'", "'.$records['imagen'].'", '.$records['pub_id'].');
                     </script>';
                     $url = 'http://localhost/proyectofinal/api/consultar_comentarios.php';
                     $ch = curl_init($url);
@@ -106,7 +109,7 @@
                 $data = json_decode(file_get_contents('http://localhost/proyectofinal/api/consultar_publicaciones_publicas.php'), true);
                 foreach($data['records'] as $records) {
                     echo '<script>
-                    cargar_publicaciones("'.$records['usuario'].'", "'.$records['contenido'].'", "'.$records['imagen'].'", "'.$records['pub_id'].'");
+                    cargar_publicacion("'.$records['usuario'].'", "'.$records['contenido'].'", "'.$records['imagen'].'", "'.$records['pub_id'].'");
                     </script>';
                     $url = 'http://localhost/proyectofinal/api/consultar_comentarios.php';
                     $ch = curl_init($url);

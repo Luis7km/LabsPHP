@@ -1,5 +1,6 @@
 <?php
     session_start();
+    unset ($_SESSION["pub_id"]);
 ?>
 <!DOCTYPE html>
 <html>

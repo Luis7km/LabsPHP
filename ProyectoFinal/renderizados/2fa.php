@@ -105,6 +105,8 @@
                     print ($_SESSION['usuario_valido']." ".$_SESSION['id_valido']);
                 
                     echo '<script>open_hub();</script>';
+                } else {
+                    echo '<script>open_login();alert("Codigo incorrecto")</script>';
                 }
             }
         ?>

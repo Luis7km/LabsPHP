@@ -127,6 +127,73 @@ midle_content.innerHTML += template;
     }
 }
 
+function cargar_publicacion(usuario, contenido, imagen, pub_id) {
+    var midle_content = document.getElementById('midle-content');
+    if (imagen!= "") {
+        const template = `<div name="publicacion" id="publicacion" class="publicacion">
+        <form action="publicacion.php" method="post">
+                        <div name="pub-name" id="pub-name" class="pub-name">
+                            <input type="hidden" name="pub_id" value="${pub_id}" style="width:30px ; font-size: 8pt; height:12px; background-color: #50D8D7; border:none;"></input>
+                            <button type="submit" style="font-size: 14pt; background-color: #50D8D7; padding: 0px; border:none;">${usuario}</button>
+                            <br><br>
+                        </div>
+                        <div name="pub-content" id="pub-content" class="pub-content">
+                            <p>${contenido}</p>
+                            <br>
+                            <div>
+                                <a href=""><img src="../archivo/${imagen}"></a>
+                                <br>
+                            </div>
+                        </div>
+                    </form><br>
+    <div name="pub-coments" id="pub-coments" class="pub-coments">
+        <h3>Comentarios</h3><hr><br>
+        <div name="comented" class="comented" id="${pub_id}" class="comented">
+            
+        </div>
+        <hr>
+        <div name="coment-area" id="coment-area" class="coment-area">
+            <form action="publicacion.php" method="post">
+                <input type="hidden" name="pub_id" id="pub_id" value="${pub_id}" style="width:30px ; font-size: 8pt; height:12px; background-color: #50D8D7; border:none;"></input>
+                <input type="text" name="coment" id="coment" class="coment" placeholder="Deja tu comentario"><br><br>
+                <input type="submit" name="comentar" id="comentar" class="comentar" value="Comentar">
+            </form>
+        </div>
+    </div>
+</div>`
+midle_content.innerHTML += template;
+    } else {
+        const template = `<div name="publicacion" id="publicacion" class="publicacion">
+        <form action="publicacion.php" method="post">
+                        <div name="pub-name" id="pub-name" class="pub-name">
+                            <input type="hidden" name="pub_id" id="pub_id" value="${pub_id}" style="width:30px ; font-size: 8pt; height:12px; background-color: #50D8D7; border:none;"></input>
+                            <button type="submit" style="font-size: 14pt; background-color: #50D8D7; padding: 0px; border:none;">${usuario}</button>
+                            <br><br>
+                        </div>
+                        <div name="pub-content" id="pub-content" class="pub-content">
+                            <p>${contenido}</p>
+                            <br>
+                        </div>
+                    </form><br>
+    <div name="pub-coments" id="pub-coments" class="pub-coments">
+    <h3>Comentarios</h3><hr><br>
+        <div name="comented" id="${pub_id}" class="comented">
+            
+        </div>
+        <hr>
+        <div name="coment-area" id="coment-area" class="coment-area">
+            <form action="publicacion.php" method="post">
+                <input type="hidden" name="pub_id" value="${pub_id}" style="width:30px ; font-size: 8pt; height:12px; background-color: #50D8D7; border:none;"></input>
+                <input type="text" name="coment" id="coment" class="coment" placeholder="Deja tu comentario"><br><br>
+                <input type="submit" name="comentar" id="comentar" class="comentar" value="Comentar">
+            </form>
+        </div>
+    </div>
+</div>`
+midle_content.innerHTML += template;
+    }
+}
+
 function cargar_comentarios(usuario, comentario, pub_id) {
     var comentarios = document.getElementById(pub_id);
     const template = 
