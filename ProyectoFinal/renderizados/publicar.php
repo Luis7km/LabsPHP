@@ -28,7 +28,7 @@
                 </div>
                 <br><hr><br>
                 <div name="second-left-option" id="second-left-option" class="second-left-option">
-                    <a href=""  style="font-size: 14pt;"><img src="../img/publicar.png" style="width: 16pt;">  Publica algo</a>
+                    <a href="publicar.php"  style="font-size: 14pt;"><img src="../img/publicar.png" style="width: 16pt;">  Publica algo</a>
                 </div>
                 <br><hr><br>
             </div>

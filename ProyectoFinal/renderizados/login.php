@@ -14,7 +14,7 @@
         <section name="content" id="content" class="content">
             <section name="Card-Credentials" id="Card-Credentials" class="Card-Credentials">
             <div name="Card-register" id="Card-register" class="Card-register">
-                <form action="../backend/back_login.php" method="post">
+                <form action="../backend/back_registro.php" method="post">
                     <h3>Por favor, ingrese sus datos para registrarse</h3>
                     <div name="registeredNames" id="registeredNames" class="registeredNames">
                         <input type="text" name="firstName" id="firstName" class="firstName" placeholder="Primer nombre">
@@ -38,7 +38,7 @@
                 </form>
             </div>
             <div name="Card-login" id="Card-login" class="Card-login">
-                <form action="../backend/back_login.php" method="post">
+                <form action="2fa.php" method="post">
                     <h3>Ingrese sus credenciales</h3>
                     <div name="credenciales" id="credenciales" class="credenciales">
                         <input type="text" name="user-login" id="user-login" class="user-login" placeholder="Usuario">

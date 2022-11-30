@@ -6,20 +6,6 @@ function open_login() {
     window.open('../renderizados/login.php', "_self");
 }
 
-function comentar(user, user_id, pub_id, coment) {
-
-    $.ajax({
-        type: "POST",
-        url: "http://localhost/proyectofinal/api/comentar.php",
-        async: false,
-        dataType: "json",
-        data: JSON.stringify({ id_user: user_id, id_publi: pub_id, comentario: coment }),
-        dataType: "json",
-        contentType: "application/json",
-    });
-
-    cargar_comentarios(user, coment, pub_id);
-}
 
 function cargar_perfil(id, nombre, apellido, usuario, email) {
     var formulario = document.getElementById('perfil-info');
@@ -76,10 +62,11 @@ function cargar_publicaciones(usuario, contenido, imagen, pub_id) {
     var midle_content = document.getElementById('midle-content');
     if (imagen!= "") {
         const template = `<div name="publicacion" id="publicacion" class="publicacion">
-        <form action="">
+        <form action="publicacion.php" method="post">
                         <div name="pub-name" id="pub-name" class="pub-name">
-                            <input type="hidden" value="${pub_id}" style="width:30px ; font-size: 8pt; height:12px; background-color: #50D8D7; border:none;"></input>
+                            <input type="hidden" name="pub_id" value="${pub_id}" style="width:30px ; font-size: 8pt; height:12px; background-color: #50D8D7; border:none;"></input>
                             <button type="submit" style="font-size: 14pt; background-color: #50D8D7; padding: 0px; border:none;">${usuario}</button>
+                            <input type="submit" class="abrir-publicacion" name="abrir-publicacion" value="Abrir publicacion"></input>
                             <br><br>
                         </div>
                         <div name="pub-content" id="pub-content" class="pub-content">
@@ -93,7 +80,7 @@ function cargar_publicaciones(usuario, contenido, imagen, pub_id) {
                     </form><br>
     <div name="pub-coments" id="pub-coments" class="pub-coments">
         <h3>Comentarios</h3><hr><br>
-        <div name="comented" id="${pub_id}" class="comented">
+        <div name="comented" class="comented" id="${pub_id}" class="comented">
             
         </div>
         <hr>
@@ -109,10 +96,11 @@ function cargar_publicaciones(usuario, contenido, imagen, pub_id) {
 midle_content.innerHTML += template;
     } else {
         const template = `<div name="publicacion" id="publicacion" class="publicacion">
-        <form action="">
+        <form action="publicacion.php" method="post">
                         <div name="pub-name" id="pub-name" class="pub-name">
-                            <input type="hidden" value="${pub_id}" style="width:30px ; font-size: 8pt; height:12px; background-color: #50D8D7; border:none;"></input>
+                            <input type="hidden" name="pub_id" id="pub_id" value="${pub_id}" style="width:30px ; font-size: 8pt; height:12px; background-color: #50D8D7; border:none;"></input>
                             <button type="submit" style="font-size: 14pt; background-color: #50D8D7; padding: 0px; border:none;">${usuario}</button>
+                            <input type="submit" class="abrir-publicacion" name="abrir-publicacion" value="Abrir publicacion"></input>
                             <br><br>
                         </div>
                         <div name="pub-content" id="pub-content" class="pub-content">

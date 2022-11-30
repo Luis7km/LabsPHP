@@ -3,7 +3,7 @@
 /*   #388697  -   #271033  - #FA8334 - #fffd77  - #ffe882 */
 /* AzulPalido - AzulOscuro - Naranja - Amarillo - Mostaza */   
 body {
-    background-color: #50D8D7;
+    background-color: #C4B7CB;
 }
 
 #acceso {
@@ -63,6 +63,34 @@ h3 {
 }
 
 .Card-register, .Card-login {
+    background-color: #50D8D7;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding: 20px;
+    border-radius: 3px;
+    border: 1px solid #FA8334;
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+}
+
+.father-2fa {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 250px;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding: 20px;
+}
+
+.Card-2fa {
+    background-color: #50D8D7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
     margin-left: 25px;
     margin-right: 25px;
     padding: 20px;

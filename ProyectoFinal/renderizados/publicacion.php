@@ -51,8 +51,19 @@
         <script src="../js/helper.js"></script>
         <?php
             if (isset($_SESSION['usuario_valido']) && isset($_SESSION['id_valido'])) {
-                $data = json_decode(file_get_contents('http://localhost/proyectofinal/api/consultar_publicaciones.php'), true);
-                foreach($data['records'] as $records) {
+                $pub_id = $_REQUEST['pub_id'];
+                    $url = 'http://localhost/proyectofinal/api/consultar_publicacion.php';
+                    $ch = curl_init($url);
+                    $user_data = array('pub_id'=>$pub_id);
+                    $user_data_json = json_encode($user_data);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $user_data_json);
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    $result = curl_exec($ch);
+                    $decoded = json_decode($result, true);
+                    curl_close($ch);
+
+                foreach($decoded['records'] as $records) {
                     echo '<script>
                     cargar_publicaciones("'.$records['usuario'].'", "'.$records['contenido'].'", "'.$records['imagen'].'", '.$records['pub_id'].');
                     </script>';
@@ -121,4 +132,10 @@
             }
         ?>
     </body>
+    <script>
+        function comentar() {
+            var pub_id = document.getElementById("pub_id").Value;
+            console.log(pub_id);
+        }
+    </script>
 </html>

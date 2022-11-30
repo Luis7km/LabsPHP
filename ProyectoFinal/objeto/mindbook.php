@@ -44,6 +44,15 @@
                 return $stmt;
         }
 
+        function consultar_publicacion($pub_id) {
+            $instrucciones = "CALL sp_listar_publicacion('".$pub_id."')";
+            //preparar consuulta
+            $stmt=$this->conn->prepare($instrucciones);
+            //ejecutar consulta
+            $stmt->execute();
+                return $stmt;
+        }
+
         function consultar_comentarios($id_pub) {
             $instrucciones = "CALL sp_listar_comentarios(".$id_pub.")";
             //preparar consuulta
