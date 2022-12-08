@@ -51,6 +51,7 @@
         <script src="../js/jquery-3.1.1.js"></script>
         <script src="../js/helper.js"></script>
         <?php
+        //Si existe sesion activa se cargan todas las publicaciones
             if (isset($_SESSION['usuario_valido']) && isset($_SESSION['id_valido'])) {
                 $data = json_decode(file_get_contents('http://localhost/proyectofinal/api/consultar_publicaciones.php'), true);
                 foreach($data['records'] as $records) {
@@ -93,6 +94,7 @@
                         </script>';
                 }
             } else {
+                //Si no existe una sesion activa se cargan solo las publicaciones publicas
                 $data = json_decode(file_get_contents('http://localhost/proyectofinal/api/consultar_publicaciones_publicas.php'), true);
                 foreach($data['records'] as $records) {
                     echo '<script>
@@ -116,6 +118,7 @@
                         }
                     }
                 }
+                //Opcion invalida si no hay sesion
                 if (array_key_exists('comentar', $_POST)) {
                     echo '<script>open_login();</script>';
                 }

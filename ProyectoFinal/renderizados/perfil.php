@@ -13,7 +13,9 @@
     </head>
     <body>
         <?php
+        //Se valida la existencia de una sesion
             if (isset($_SESSION['usuario_valido']) && isset($_SESSION['id_valido'])) {
+                //Si se da clic en actualizar, se cambia la informacion
                 if (array_key_exists('actualizar', $_POST)) {
                     $url = 'http://localhost/proyectofinal/api/modificar_usuario.php';
                     $ch = curl_init($url);
@@ -28,7 +30,9 @@
                     $result = curl_exec($ch);
                     echo '<script>alert("Cambio correcto");</script>';
                 }
+                //Si se da clic en actualizar contrasena Se procede con la modificacion
                 if (array_key_exists('actualizar2', $_POST)) {
+                    //Se accede a la informacion de usuario y se encripta la entrada para validar
                     $url = 'http://localhost/proyectofinal/api/consultar_perfil.php';
                     $ch = curl_init($url);
                     $user_data = array('usuario'=>$_SESSION["usuario_valido"]);
@@ -102,7 +106,7 @@
         </footer>
     </body>
     <?php
-    
+    //Se llama a la api que obtiene el perfil y se manda cada campo como atributo al metodo js
     $url = 'http://localhost/proyectofinal/api/consultar_perfil.php';
     $ch = curl_init($url);
     $user_data = array('usuario'=>$_SESSION["usuario_valido"]);

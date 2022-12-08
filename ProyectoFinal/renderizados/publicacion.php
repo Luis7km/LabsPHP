@@ -50,9 +50,11 @@
         <script src="../js/jquery-3.1.1.js"></script>
         <script src="../js/helper.js"></script>
         <?php
+            //Se recibe el ID de la publicacion para acceder solo a ella
             if (isset($_POST['abrir-publicacion'])) {
                 $_SESSION["pub_id"] = $_REQUEST['pub_id'];
             }
+            //Se busca la publicacion por ID
             if (isset($_SESSION['usuario_valido']) && isset($_SESSION['id_valido'])) {
                 $pub_id = $_SESSION["pub_id"];
                     $url = 'http://localhost/proyectofinal/api/consultar_publicacion.php';
@@ -65,7 +67,7 @@
                     $result = curl_exec($ch);
                     $decoded = json_decode($result, true);
                     curl_close($ch);
-
+                //Se cargan los comentarios de la publicacion buscada
                 foreach($decoded['records'] as $records) {
                     echo '<script>
                     cargar_publicacion("'.$records['usuario'].'", "'.$records['contenido'].'", "'.$records['imagen'].'", '.$records['pub_id'].');
@@ -90,6 +92,7 @@
                         }
                     }  
                 }
+                //Codigo para hacer un comentario en una publicacion
                 if (array_key_exists('comentar', $_POST)) {
                     $url = 'http://localhost/proyectofinal/api/comentar.php';
                     $ch = curl_init($url);

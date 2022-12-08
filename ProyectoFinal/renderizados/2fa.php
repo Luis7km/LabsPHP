@@ -25,6 +25,7 @@
         </section>
         <?php
         
+            // Se valida el usuario y contrasena contra BD para proceder con la autenticacion
             if (array_key_exists('aceptar-login', $_POST)) {
 
                 $salt=substr($_REQUEST['user-login'], 0, 2);
@@ -79,7 +80,7 @@
                     }
             
             }
-
+            //Se valida el codigo ingresado contra el codigo generado
             if (array_key_exists('autenticar', $_POST)) {
 
                 if ($_REQUEST['2fa-login1']==$_REQUEST['2fa-login2']) {
