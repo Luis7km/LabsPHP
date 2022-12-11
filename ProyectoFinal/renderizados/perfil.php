@@ -17,54 +17,68 @@
             if (isset($_SESSION['usuario_valido']) && isset($_SESSION['id_valido'])) {
                 //Si se da clic en actualizar, se cambia la informacion
                 if (array_key_exists('actualizar', $_POST)) {
-                    $url = 'http://localhost/proyectofinal/api/modificar_usuario.php';
-                    $ch = curl_init($url);
-                    $user_data = array('id'=>$_REQUEST['info-id'],
+                    if (!empty($_REQUEST['info-id'])&&
+                        !empty($_REQUEST['info-nombre'])&&
+                        !empty($_REQUEST['info-apellido'])&&
+                        !empty($_REQUEST['info-email'])) {
+
+                        $url = 'http://localhost/proyectofinal/api/modificar_usuario.php';
+                        $ch = curl_init($url);
+                        $user_data = array('id'=>$_REQUEST['info-id'],
                                         'nombre'=>$_REQUEST['info-nombre'],
                                         'apellido'=>$_REQUEST['info-apellido'],
                                         'email'=>$_REQUEST['info-email']);
-                    $user_data_json = json_encode($user_data);
-                    curl_setopt($ch, CURLOPT_POSTFIELDS, $user_data_json);
-                    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                    $result = curl_exec($ch);
-                    echo '<script>alert("Cambio correcto");</script>';
+                        $user_data_json = json_encode($user_data);
+                        curl_setopt($ch, CURLOPT_POSTFIELDS, $user_data_json);
+                        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                        $result = curl_exec($ch);
+                        echo '<script>alert("Cambio correcto");</script>';
+                    } else {
+                        echo '<script>alert("Campos incorrectos");</script>';
+                    }
+                    
                 }
                 //Si se da clic en actualizar contrasena Se procede con la modificacion
                 if (array_key_exists('actualizar2', $_POST)) {
-                    //Se accede a la informacion de usuario y se encripta la entrada para validar
-                    $url = 'http://localhost/proyectofinal/api/consultar_perfil.php';
-                    $ch = curl_init($url);
-                    $user_data = array('usuario'=>$_SESSION["usuario_valido"]);
-                    $user_data_json = json_encode($user_data);
-                    curl_setopt($ch, CURLOPT_POSTFIELDS, $user_data_json);
-                    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                    $result = curl_exec($ch);
-                    $decoded = json_decode($result, true);
-                    curl_close($ch);
+                    if (!empty($_REQUEST['info-pass1']) && !empty($_REQUEST['info-pass2'])) {
+                        //Se accede a la informacion de usuario y se encripta la entrada para validar
+                        $url = 'http://localhost/proyectofinal/api/consultar_perfil.php';
+                        $ch = curl_init($url);
+                        $user_data = array('usuario'=>$_SESSION["usuario_valido"]);
+                        $user_data_json = json_encode($user_data);
+                        curl_setopt($ch, CURLOPT_POSTFIELDS, $user_data_json);
+                        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                        $result = curl_exec($ch);
+                        $decoded = json_decode($result, true);
+                        curl_close($ch);
+                
+                        $salt=substr($_REQUEST['info-user'], 0, 2);
+                        $clave_crypt = crypt($_REQUEST['info-pass1'], $salt);
+                        $pass = $clave_crypt;
             
-                    $salt=substr($_REQUEST['info-user'], 0, 2);
-                    $clave_crypt = crypt($_REQUEST['info-pass1'], $salt);
-                    $pass = $clave_crypt;
-            
-                    if ($pass == $decoded['records'][0]['contrasena'] && !$_REQUEST['info-pass2']) {
-                        $salt1=substr($_REQUEST['info-user'], 0, 2);
-                        $clave_crypt1 = crypt($_REQUEST['info-pass2'], $salt1);
-                        $pass1 = $clave_crypt1;
-                        $url1 = 'http://localhost/proyectofinal/api/modificar_contrasena.php';
-                        $ch1 = curl_init($url1);
-                        $user_data1 = array('id'=>$_REQUEST['info-id'],
-                                            'contrasena'=>$pass1);
-                        $user_data_json1 = json_encode($user_data1);
-                        curl_setopt($ch1, CURLOPT_POSTFIELDS, $user_data_json1);
-                        curl_setopt($ch1, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-                        curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
-                        $result1 = curl_exec($ch1);
-                        echo '<script>alert("Cambio de contrasena correcto");</script>';
+                        if ($pass == $decoded['records'][0]['contrasena']) {
+                            $salt1=substr($_REQUEST['info-user'], 0, 2);
+                            $clave_crypt1 = crypt($_REQUEST['info-pass2'], $salt1);
+                            $pass1 = $clave_crypt1;
+                            $url1 = 'http://localhost/proyectofinal/api/modificar_contrasena.php';
+                            $ch1 = curl_init($url1);
+                            $user_data1 = array('id'=>$_REQUEST['info-id'],
+                                                'contrasena'=>$pass1);
+                            $user_data_json1 = json_encode($user_data1);
+                            curl_setopt($ch1, CURLOPT_POSTFIELDS, $user_data_json1);
+                            curl_setopt($ch1, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+                            curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+                            $result1 = curl_exec($ch1);
+                            echo '<script>alert("Cambio de contrasena correcto");</script>';
+                        } else {
+                            echo '<script>alert("Contrasena actual incorrecta");</script>';
+                        }
                     } else {
                         echo '<script>alert("Algun campo esta vacio o incompleto");</script>';
                     }
+                    
                 }
         ?>
         <header>

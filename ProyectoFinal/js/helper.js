@@ -6,6 +6,10 @@ function open_login() {
     window.open('../renderizados/login.php', "_self");
 }
 
+function open_publicar() {
+    window.open('../renderizados/publicar.php', "_self");
+}
+
 
 function cargar_perfil(id, nombre, apellido, usuario, email) {
     var formulario = document.getElementById('perfil-info');
